@@ -1,0 +1,11 @@
+%table
+  %tr
+    %th id
+    %th name
+    %th email
+  - @info_form.users.each do |user|
+    %tr
+      %td= user.id
+      %td= user.name
+      %td= user.email
+= "合計: #{@info_form.users.count} 人"

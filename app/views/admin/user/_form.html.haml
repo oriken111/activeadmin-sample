@@ -1,0 +1,22 @@
+= form_for @info_form, url: admin_mailer_path, method: :post do |f|
+  = notice
+  - @info_form.user_ids.each do |user_id|
+    = f.hidden_field :user_ids, multiple: true, value: user_id
+  .mail_column
+    = f.label :cc
+    %br
+    = f.text_field :cc, placeholder: 'test@test.com'
+  .mail_column
+    = f.label :bcc
+    %br
+    = f.text_field :bcc, placeholder: 'test@test.com'
+  .mail_column
+    = f.label :subject
+    %br
+    = f.text_field :subject, placeholder: 'タイトルを記入して下さい。'
+  .mail_column
+    = f.label :body
+    %br
+    = f.text_area :body, placeholder: '本文を記入して下さい。'
+  .mail_column
+    = f.submit 'Send email'
