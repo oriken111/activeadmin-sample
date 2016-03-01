@@ -1,6 +1,6 @@
 ActiveAdmin.register_page 'Mailer' do
-  # 5,6のmailerとformをインクルード
   menu false
+  # 5,6のmailerとformをインクルード
   include InfoMailer
   include InfoForm
 
@@ -28,9 +28,9 @@ ActiveAdmin.register_page 'Mailer' do
       @info_form = InfoForm.new(info_form_params)
       if @info_form.valid?
         @info_form.deliver_all
-        redirect_to :back, notice: 'メール送信成功'
+        redirect_to admin_users_path, notice: 'メール送信成功'
       else
-        redirect_to :back, notice: 'メール送信失敗'
+        redirect_to admin_users_path, notice: 'メール送信失敗'
       end
     end
 
