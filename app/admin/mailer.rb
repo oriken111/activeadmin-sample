@@ -6,11 +6,11 @@ ActiveAdmin.register_page 'Mailer' do
 
   content do
     panel '選択したユーザー' do
-      render 'admin/user/user' # 3のviewをrender
+      render 'admin/user' # 3のviewをrender
     end
 
-    panel 'メール作成  from:hoge@mail.com' do
-      render 'admin/user/form' # 4のviewをrender
+    panel 'メール作成' do
+      render 'admin/form' # 4のviewをrender
     end
   end
 
@@ -35,7 +35,7 @@ ActiveAdmin.register_page 'Mailer' do
     end
 
     def info_form_params
-      params.require(:info_form).permit(:to, :cc, :bcc, :subject, :body, user_ids: [])
+      params.require(:info_form).permit(:to, :cc, :bcc, :subject, :body)
     end
   end
 end

@@ -13,4 +13,6 @@ class InfoMailer < ActionMailer::Base
          subject: @info_form.subject
          )
   end
+
+
 end
