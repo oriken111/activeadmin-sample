@@ -13,7 +13,7 @@ class InfoForm
 
   def deliver_all
     users.each do |user|
-      InfoMailer.send_customer(self, user).deliver
+      InfoMailer.send_customer(self, user).deliver_now
     end
   end
 end
