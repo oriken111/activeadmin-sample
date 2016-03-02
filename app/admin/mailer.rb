@@ -35,7 +35,7 @@ ActiveAdmin.register_page 'Mailer' do
     end
 
     def info_form_params
-      params.require(:info_form).permit(:to, :cc, :bcc, :subject, :body)
+      params.require(:info_form).permit(:to, :cc, :bcc, :subject, :body, :user_ids)
     end
   end
 end
