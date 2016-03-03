@@ -29,6 +29,8 @@ end
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
+  filter :user
+  filter :article_id
 
   permit_params :content, :approved, :user_id
 

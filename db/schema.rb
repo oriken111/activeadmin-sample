@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20160303072032) do
     t.integer  "user_id"
   end
 
+  add_index "articles", ["user_id", "created_at"], name: "index_articles_on_user_id_and_created_at"
   add_index "articles", ["user_id"], name: "index_articles_on_user_id"
 
   create_table "author_books", force: :cascade do |t|
@@ -77,16 +78,6 @@ ActiveRecord::Schema.define(version: 20160303072032) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
-
-  create_table "posts", force: :cascade do |t|
-    t.text     "content"
-    t.boolean  "approved"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
