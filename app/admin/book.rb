@@ -1,5 +1,5 @@
 ActiveAdmin.register Book do
-  menu false
+#  menu false
   permit_params :title, :isbn, :published_date, author_books_attributes: [:author_id, :_destroy, :id]
 
   form do |f|

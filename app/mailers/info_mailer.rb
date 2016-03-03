@@ -11,7 +11,6 @@ class InfoMailer < ActionMailer::Base
          cc: @info_form.cc,
          bcc: @info_form.bcc,
          subject: @info_form.subject
-         body: @info_form.body
          )
   end
 
