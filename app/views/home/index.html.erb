@@ -13,13 +13,7 @@
         ", current_user.id
       ).count, "article") %>
     <% else %>
-<!--      <%= pluralize(
-        Article.where("
-          user_id = ?
-            AND
-          date_trunc( 'month', time_stamp )
-        ")
-      ).count, "article") %> -->
+      <%= pluralize(Article.group_by_this_month.count, "article") %>
     <% end %>
     this month.
   </p>
