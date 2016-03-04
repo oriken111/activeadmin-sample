@@ -12,7 +12,7 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'devise'
 gem 'active_skin'
 gem 'haml-rails'
-
+gem 'bootstrap-sass',       '3.2.0.0'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'

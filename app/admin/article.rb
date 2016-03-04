@@ -18,6 +18,7 @@ end
     f.inputs 'Resister Article' do
       f.input :content
       f.input :approved
+      f.input :created_at
       f.input :user do |u|
         u.name
       end
@@ -31,7 +32,8 @@ end
 # end
   filter :user
   filter :article_id
+  filter :created_at
 
-  permit_params :content, :approved, :user_id
+  permit_params :content, :approved, :user_id, :created_at
 
 end

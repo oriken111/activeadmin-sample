@@ -7,6 +7,7 @@ ActiveAdmin.register User do
     selectable_column
     id_column
     column :name
+    column :email
     column :no_of_article do |u|
       u.articles.count
     end
@@ -18,7 +19,7 @@ ActiveAdmin.register User do
   end
 
   form do |f|
-    f.inputs 'User Sign up' do
+    f.inputs 'User information' do
       f.input :name
       f.input :email
       f.input :sex

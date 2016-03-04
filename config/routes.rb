@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :articles
   resources :posts
   resources :users
   post 'admin/mailer' => 'admin/mailer#create'
+  root :to => 'home#index'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.

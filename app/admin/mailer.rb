@@ -6,17 +6,16 @@ ActiveAdmin.register_page 'Mailer' do
 
   content do
     panel '選択したユーザー' do
-      render 'admin/user' # 3のviewをrender
+      render 'admin/user'
     end
 
     panel 'メール作成' do
-      render 'admin/form' # 4のviewをrender
+      render 'admin/form'
     end
   end
 
   controller do
     def index
-      # redirect
       if params[:user_ids].blank? || params[:user_ids].empty?
         redirect_to admin_users_path, notice: 'ユーザーを選択して下さい'
       else

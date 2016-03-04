@@ -1,0 +1,35 @@
+<% if user_signed_in? %>
+  <p>Welcome <strong><%= current_user.name %></strong>.</p>
+  <p>
+    You have written <%= pluralize(current_user.articles.count, "article") %> for total,
+    <% if Rails.env == 'development' %>
+      <%= pluralize(
+        Article.where("
+          user_id = ?
+            AND
+          created_at
+          BETWEEN
+            date ('now', 'start of month') AND date ('now', 'start of month', '+1 month', '-1 day')
+        ", current_user.id
+      ).count, "article") %>
+    <% else %>
+      <%= pluralize(Article.group_by_this_month.count, "article") %>
+    <% end %>
+    this month.
+  </p>
+    <table class="table table-striped table-bordered">
+      <tr>
+        <th>Evernote URL</th>
+        <th>Sent date</th>
+        <th>Approved</th>
+        <th>Action</th>
+      </tr>
+      <%= render @articles %>
+    </table>
+<% else %>
+<div class="center jumbotron">
+  <h2>Welcome to JapanInfo Admin</h2>
+    <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+    <%= link_to "or Log in", new_user_session_path %>
+</div>
+<% end %>
