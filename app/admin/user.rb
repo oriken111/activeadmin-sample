@@ -15,7 +15,6 @@ ActiveAdmin.register User do
     column :sex
     column :nationality
     column :residence
-    actions
   end
 
   form do |f|
@@ -25,7 +24,6 @@ ActiveAdmin.register User do
       f.input :sex
       f.input :nationality
       f.input :residence
-      f.actions
     end
   end
 
