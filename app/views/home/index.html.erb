@@ -8,13 +8,14 @@
         Article.where("
           user_id = ?
             AND
-          created_at
-          BETWEEN
-            date ('now', 'start of month') AND date ('now', 'start of month', '+1 month', '-1 day')
+          created_at BETWEEN date ('now', 'start of month') AND date ('now', 'start of month', '+1 month', '-1 day')
         ", current_user.id
       ).count, "article") %>
     <% else %>
-      <%= pluralize(Article, "article") %>
+      <%= pluralize(
+        Article.where("
+          created_at BETWEEN date_trunc('month',now()) and date_trunc('month',now())  + interval '1 month' - interval '1 days';
+        ").count, "article") %>
     <% end %>
     this month.
   <h1>Post History</h1>
