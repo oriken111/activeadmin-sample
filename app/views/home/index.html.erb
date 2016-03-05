@@ -14,7 +14,7 @@
         ", current_user.id
       ).count, "article") %>
     <% else %>
-      <%= pluralize(Article.group_by_this_month.count, "article") %>
+      <%= pluralize(Article, "article") %>
     <% end %>
     this month.
   <h1>Post History</h1>
