@@ -14,7 +14,7 @@
     <% else %>
       <%= Article.where("
           created_at BETWEEN date_trunc('month',now()) and date_trunc('month',now()) + interval '1 month' - interval '1 days';
-        ") %>
+        ").count %>
     <% end %>
     this month.
   <h1>Post History</h1>
